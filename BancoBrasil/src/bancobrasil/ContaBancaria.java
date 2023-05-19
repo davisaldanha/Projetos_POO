@@ -8,6 +8,49 @@ public class ContaBancaria {
     double saldo;
     Usuario proprietario;
 
+    //Métodos construtor
+    public ContaBancaria(){}
+    
+    public ContaBancaria(String agencia, String conta, double saldo, Usuario proprietario){
+        this.agencia= agencia;
+        this.conta = conta;
+        this.saldo = saldo;
+        this.proprietario = proprietario;
+    }
+    
+    //Métodos Getters e Setters
+    public String getAgencia(){
+        return this.agencia;
+    }
+    
+    public String getConta(){
+        return this.conta;
+    }
+    
+    public double getSaldo(){
+        return this.saldo;
+    }
+    
+    public Usuario getProprietario(){
+        return this.proprietario;
+    }
+    
+    public void setAgencia(String agencia){
+        this.agencia = agencia;
+    }
+    
+    public void setConta(String conta){
+        this.conta = conta;
+    }
+    
+    public void setSaldo(double saldo){
+        this.saldo = saldo;
+    }
+    
+    public void setProprietario(Usuario proprietario){
+        this.proprietario = proprietario;
+    }
+    
     //Métodos(comportamentos) da classe
     void depositar(double valor) {//Método com parametro
         this.saldo += valor;
