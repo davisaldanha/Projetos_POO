@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BancoBrasil {
 
     public static void main(String[] args) {
+        /*
         //Instanciando objetos do tipo ContaBancaria e referenciando nas
         //variaveis contaBancaria1 e contaBancaria2
         ContaBancaria contaBancaria1 = new ContaBancaria();
@@ -26,8 +27,7 @@ public class BancoBrasil {
                 + contaBancaria1.conta + "\n"
                 + contaBancaria1.proprietario + "\n"
                 + contaBancaria1.saldo);
-
-        */
+        
         
         Scanner scan = new Scanner(System.in);
         
@@ -42,11 +42,11 @@ public class BancoBrasil {
         //Inserção de dados do usuario
         System.out.println("Dados do Usuário");
         System.out.print("Digite o nome do cliente -> ");
-        user1.nome = scan.next();
+        user1.setNome(scan.next());
         System.out.print("Digite o sobrenome do cliente -> ");
-        user1.sobrenome = scan.next();
+        user1.setSobrenome(scan.next());
         System.out.print("Digite o telefone do cliente -> ");
-        user1.telefone = scan.next();
+        user1.setTelefone(scan.next());
         contaBancaria1.proprietario = user1;
         
         System.out.print("\nDigite o valor de deposito -> ");
@@ -61,6 +61,65 @@ public class BancoBrasil {
         contaBancaria1.sacar(scan.nextDouble());
         
         System.out.println(contaBancaria1.consultarSaldo());
-                
+
+         */
+
+        Scanner scan = new Scanner(System.in);
+        int opcao = 0;
+        Usuario user;
+        Usuario[] users = new Usuario[5];
+        ContaBancaria contabancaria = new ContaBancaria();
+
+        while (opcao != 3) {
+            //1º Tela
+            System.out.println("***BANCO BRASIL***");
+            System.out.println("1- Cadastro de Cliente");
+            System.out.println("2- Cadastro de Conta");
+            System.out.println("3- Sair");
+            System.out.print("Escolhe uma opção: ");
+            opcao = scan.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    for (int i = 0; i < 5; i++) {
+                        user = new Usuario();
+                        System.out.println("***CADASTRO DE CLIENTE***");
+                        System.out.print("Nome: ");
+                        user.setNome(scan.next());
+                        System.out.print("Sobrenome: ");
+                        user.setSobrenome(scan.next());
+                        System.out.printf("Telefone: ");
+                        user.setTelefone(scan.next());
+
+                        users[i] = user;
+                    }
+                    break;
+                case 2:
+                    System.out.println("***CADASTRO DE CONTA***");
+                    System.out.print("Agencia: ");
+                    contabancaria.setAgencia(scan.next());
+                    System.out.print("Conta: ");
+                    contabancaria.setConta(scan.next());
+                    System.out.println("CLIENTES CADASTRADOS");
+                    for (int i = 0; i < 5; i++) {
+                        System.out.printf("%i- %s %s", i, users[i].getNome(), users[i].getSobrenome());
+                    }
+                    System.out.print("Selecione o cliente: ");
+                    
+                    //Realizar a implementação para associar um usuário selecionado com a conta
+                    //que está sendo criada. E a validação caso não existe nenhum user no vetor
+                    int userOpcao = scan.nextInt();
+                    if (userOpcao == 1) {
+                        //contabancaria.setProprietario(user);
+                    }
+                    break;
+                case 3:
+                    System.out.println("***ATÉ BREVE!***");
+                    break;
+                default:
+                    System.out.println("Opção Inválida!");
+            }
+        }
+
     }
 }

@@ -3,10 +3,11 @@ package bancobrasil;
 public class ContaBancaria {
 
     //Atributos(características) da classe
-    String agencia;
-    String conta;
-    double saldo;
-    Usuario proprietario;
+    private String agencia;
+    private String conta;
+    private double saldo;
+    private Usuario proprietario;
+    
 
     //Métodos construtor
     public ContaBancaria(){}
