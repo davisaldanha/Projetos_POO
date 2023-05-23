@@ -101,17 +101,16 @@ public class BancoBrasil {
                     System.out.print("Conta: ");
                     contabancaria.setConta(scan.next());
                     System.out.println("CLIENTES CADASTRADOS");
-                    for (int i = 0; i < 5; i++) {
-                        System.out.printf("%i- %s %s", i, users[i].getNome(), users[i].getSobrenome());
-                    }
-                    System.out.print("Selecione o cliente: ");
+                    if (users[0] != null) {
+                        for (int i = 0; i < 5; i++) {
+                            System.out.printf("%d- %s %s\n", i + 1, users[i].getNome(), users[i].getSobrenome());
+                        }
+                        System.out.print("Selecione o cliente: ");
+                        int userOpcao = scan.nextInt();
+                        contabancaria.setProprietario(users[userOpcao - 1]);
+                    }else
+                        System.out.println("Nenhum cliente cadastrado!" + "");
                     
-                    //Realizar a implementação para associar um usuário selecionado com a conta
-                    //que está sendo criada. E a validação caso não existe nenhum user no vetor
-                    int userOpcao = scan.nextInt();
-                    if (userOpcao == 1) {
-                        //contabancaria.setProprietario(user);
-                    }
                     break;
                 case 3:
                     System.out.println("***ATÉ BREVE!***");
